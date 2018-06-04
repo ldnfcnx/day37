@@ -194,7 +194,12 @@ function makeTableData(){
         for(let j=0;j<tds.length;j++){
             arr.push(Number(tds[j].innerHTML));
         }
-        data[i-1].sale=arr;
+        let sign=trs[i].id.split("_");
+        for(let j=0;j<data.length;j++){
+            if(sign.indexOf(data[j].product)!=-1&&sign.indexOf(data[j].region)!=-1){
+                    data[j].sale=arr;
+            }
+        }
     }
     return data;
 }
